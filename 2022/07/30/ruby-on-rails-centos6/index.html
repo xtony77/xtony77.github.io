@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>安裝 Ruby on Rails on CentOS 6 | XTONY77 Blog</title>
+  <meta name="description" content="在公司沒事情，利用下午試著裝了CentOS 6跟Ruby on Rails小筆記，第一次裝還有很多不足地方，不過先記錄起來。 安裝RVM預設的CentOS 6安裝好後，有內建ruby 1.8.3 終端機輸入以下指令安裝1\curl -sSL https:&#x2F;&#x2F;get.rvm.io | bash -s stable --ruby  安裝完成指定RVM source路徑1source &#x2F;usr&#x2F;loca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安裝 Ruby on Rails on CentOS 6">
+<meta property="og:url" content="https://xtony77.github.io/2022/07/30/ruby-on-rails-centos6/index.html">
+<meta property="og:site_name" content="XTONY77 Blog">
+<meta property="og:description" content="在公司沒事情，利用下午試著裝了CentOS 6跟Ruby on Rails小筆記，第一次裝還有很多不足地方，不過先記錄起來。 安裝RVM預設的CentOS 6安裝好後，有內建ruby 1.8.3 終端機輸入以下指令安裝1\curl -sSL https:&#x2F;&#x2F;get.rvm.io | bash -s stable --ruby  安裝完成指定RVM source路徑1source &#x2F;usr&#x2F;loca">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://user-image.logdown.io/user/3783/blog/3842/post/175066/DAGHGVu7TyqdhxWyKidS_rails_up.jpg">
+<meta property="article:published_time" content="2022-07-29T16:25:46.369Z">
+<meta property="article:modified_time" content="2022-07-29T16:26:47.415Z">
+<meta property="article:author" content="xtony77">
+<meta property="article:tag" content="xtony77">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://user-image.logdown.io/user/3783/blog/3842/post/175066/DAGHGVu7TyqdhxWyKidS_rails_up.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xtony77.github.io/2022/07/30/ruby-on-rails-centos6/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="XTONY77 Blog" type="application/atom+xml">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xtony77" target="_blank">
+          <img class="img-circle img-rotate" src="/images/xtony77.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">xtony77</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Backend Engineer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Taipei, Taiwan</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form" method="GET" action="https://www.baidu.com/s?">
+	<div class="input-group">
+    	<input name="wd" type="text" class="form-control search-form-input" placeholder="搜索" />
+	    <span class="input-group-btn">
+	    	<button type="submit" class=" btn btn-flat search-form-submit"><i class="icon icon-search"></i></button>
+	    </span>
+    </div>
+</form>
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">主頁</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">歸檔</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">關於</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">歸檔</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/30/ruby-on-rails-centos6/" class="title">安裝 Ruby on Rails on CentOS 6</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-29T16:25:46.369Z" itemprop="datePublished">2022-07-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/29/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-29T15:07:35.241Z" itemprop="datePublished">2022-07-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-ruby-on-rails-centos6" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安裝 Ruby on Rails on CentOS 6
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/30/ruby-on-rails-centos6/" class="article-date">
+	  <time datetime="2022-07-29T16:25:46.369Z" itemprop="datePublished">2022-07-30</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/30/ruby-on-rails-centos6/#comments" class="article-comment-link">評論</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>在公司沒事情，利用下午試著裝了CentOS 6跟Ruby on Rails小筆記，第一次裝還有很多不足地方，不過先記錄起來。</p>
+<h1 id="安裝RVM"><a href="#安裝RVM" class="headerlink" title="安裝RVM"></a>安裝RVM</h1><p>預設的CentOS 6安裝好後，有內建ruby 1.8.3</p>
+<h4 id="終端機輸入以下指令安裝"><a href="#終端機輸入以下指令安裝" class="headerlink" title="終端機輸入以下指令安裝"></a>終端機輸入以下指令安裝</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\curl -sSL https://get.rvm.io | bash -s stable --ruby</span><br></pre></td></tr></table></figure>
+
+<h4 id="安裝完成指定RVM-source路徑"><a href="#安裝完成指定RVM-source路徑" class="headerlink" title="安裝完成指定RVM source路徑"></a>安裝完成指定RVM source路徑</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /usr/local/rvm/scripts/rvm</span><br></pre></td></tr></table></figure>
+
+<p>這時候會發現安裝完RVM，連同GEM及新版Ruby都幫你裝好了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rvm -v</span><br><span class="line">rvm 1.25.14</span><br><span class="line"></span><br><span class="line">gem -v</span><br><span class="line">2.2.1</span><br><span class="line"></span><br><span class="line">ruby -v</span><br><span class="line">ruby 2.1.0p0</span><br></pre></td></tr></table></figure>
+
+<h1 id="安裝Rails"><a href="#安裝Rails" class="headerlink" title="安裝Rails"></a>安裝Rails</h1><p>利用剛裝好的GEM來安裝Rails</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rails</span><br></pre></td></tr></table></figure>
+
+<h1 id="安裝sqlite3"><a href="#安裝sqlite3" class="headerlink" title="安裝sqlite3"></a>安裝sqlite3</h1><p>這邊先使用sqlite資料庫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install sqlite-devel</span><br><span class="line"></span><br><span class="line">gem install sqlite3-ruby</span><br></pre></td></tr></table></figure>
+
+<h1 id="安裝nodejs"><a href="#安裝nodejs" class="headerlink" title="安裝nodejs"></a>安裝nodejs</h1><p>沒安裝會發生的錯誤是：Could not find a JavaScript runtime.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nodejs</span><br></pre></td></tr></table></figure>
+
+<h1 id="可以來新創一個Rails專案了"><a href="#可以來新創一個Rails專案了" class="headerlink" title="可以來新創一個Rails專案了"></a>可以來新創一個Rails專案了</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd 桌面</span><br><span class="line">rails new helloworld</span><br><span class="line">cd ./helloworld</span><br><span class="line">rails s</span><br></pre></td></tr></table></figure>
+<p>這時候出現一個意外錯誤<br><code>could not find gem &#39;sdoc ( = 0) ruby&#39; in the gems available on this machine</code><br>經過爬文，重新安裝GEM上面的bundler這個套件可以解決，so…</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install bundler</span><br></pre></td></tr></table></figure>
+
+<p>重新up專案，需在專案目錄路徑底下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bundle install</span><br><span class="line">rails s</span><br></pre></td></tr></table></figure>
+
+<h1 id="成功畫面"><a href="#成功畫面" class="headerlink" title="成功畫面"></a>成功畫面</h1><p>如果在終端機畫面中有看到<code>http://0.0.0.0:3000</code>字樣代表成功了，可以到瀏覽器打上那個網址，看到下面畫面代表成功了。<br><img src="http://user-image.logdown.io/user/3783/blog/3842/post/175066/DAGHGVu7TyqdhxWyKidS_rails_up.jpg" alt="rails_up.jpg"></p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm">https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm</a><br><a target="_blank" rel="noopener" href="http://itekblog.com/ruby-on-rails-centos-6/">http://itekblog.com/ruby-on-rails-centos-6/</a><br><a target="_blank" rel="noopener" href="https://github.com/bundler/bundler/issues/1767">https://github.com/bundler/bundler/issues/1767</a><br><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/6282307/execjs-and-could-not-find-a-javascript-runtime">http://stackoverflow.com/questions/6282307/execjs-and-could-not-find-a-javascript-runtime</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/07/29/hello-world/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        &copy; 2022 xtony77
+        
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xtony77.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+   
+
+
+
+
+
+
+</body>
+</html>
