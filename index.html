@@ -133,7 +133,7 @@
   <div class="widget">
     <h3 class="widget-title">歸檔</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -152,25 +152,10 @@
                 
               </p>
               <p class="item-title">
-                <a href="/2022/07/30/ruby-on-rails-centos6/" class="title">安裝 Ruby on Rails on CentOS 6</a>
+                <a href="/2022/07/30/pow/" class="title">共識演算法介紹</a>
               </p>
               <p class="item-date">
-                <time datetime="2022-07-29T16:25:46.369Z" itemprop="datePublished">2022-07-30</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2022/07/29/hello-world/" class="title">Hello World</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-07-29T15:07:35.241Z" itemprop="datePublished">2022-07-29</time>
+                <time datetime="2022-07-29T16:40:11.114Z" itemprop="datePublished">2022-07-30</time>
               </p>
             </div>
           </li>
@@ -187,63 +172,65 @@
   
   <main class="main" role="main">
   
-  <div class="content article-list">
+  
+    <div class="content">
+  <article id="post-pow" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/30/ruby-on-rails-centos6/">安裝 Ruby on Rails on CentOS 6</a>
+      <a class="article-title" href="/2022/07/30/pow/">共識演算法介紹</a>
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/07/30/ruby-on-rails-centos6/" class="article-date">
-	  <time datetime="2022-07-29T16:25:46.369Z" itemprop="datePublished">7月 30</time>
+	<a href="/2022/07/30/pow/" class="article-date">
+	  <time datetime="2022-07-29T16:40:11.114Z" itemprop="datePublished">2022-07-30</time>
 	</a>
 </span>
-    
-    
+        
+        
 
-    <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/30/ruby-on-rails-centos6/#comments" class="article-comment-link">評論</a></span> -->
-    
-  </p>
-</article>
+        
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/30/pow/#comments" class="article-comment-link">評論</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="Proof-Of-Work-ethereum"><a href="#Proof-Of-Work-ethereum" class="headerlink" title="Proof Of Work (ethereum)"></a>Proof Of Work (ethereum)</h2><p>第一個運算結果滿足下列算式的節點有權利寫入帳本並獲得獎勵</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hash(BlockData(parent hash + transactions + nonce)) decimal &lt; Difficulty</span><br></pre></td></tr></table></figure>
+
+<p>難度值 Difficulty 週期性調整公式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Difficulty = 舊Difficulty * (實際區塊生成花費時間 / 理論上區塊生成花費時間)</span><br></pre></td></tr></table></figure>
+
+<p>Miner挖礦節點只能暴力猜nonce這個隨機數是什麼，透過多次猜測大量運算得到公式結果。</p>
+<p>挖礦節點越多，difficulty難度值會增加，反之難度值減少，確保算力均衡。</p>
+<p>Broadcast廣播同步節點數據的時候，會檢查新挖出block資訊驗證，parent hash是否等同上一個block hash、timestamp是否大於上一個block時間、交易內容是否都合法…等等，藉此達到最終一致性。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li>Youtube影片說明共識演算過程 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=zcX7OJ-L8XQ">Blockchain - ETH.BUILD</a></li>
+<li><a target="_blank" rel="noopener" href="https://ethereum.org/zh-tw/developers/docs/consensus-mechanisms/pow/">Ethereum doc PoW</a></li>
+<li><a target="_blank" rel="noopener" href="https://ethereum.org/zh-tw/developers/docs/consensus-mechanisms/pow/mining/">Ethereum doc Mining</a></li>
+<li><a target="_blank" rel="noopener" href="https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/mining-algorithms/ethash/">Ethereum doc Ethash</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      
+
+    </div>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/29/hello-world/">Hello World</a>
-    </h1>
+</div>
+
   
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/07/29/hello-world/" class="article-date">
-	  <time datetime="2022-07-29T15:07:35.241Z" itemprop="datePublished">7月 29</time>
-	</a>
-</span>
-    
-    
-
-    <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/29/hello-world/#comments" class="article-comment-link">評論</a></span> -->
-    
-  </p>
-</article>
-
-    
-  </div>
 
    
 </main>
