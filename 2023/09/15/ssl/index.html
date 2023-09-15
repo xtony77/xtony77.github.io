@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>XTONY77 Blog</title>
-  <meta name="description" content="xtony77,blog,筆記,github">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XTONY77 Blog">
-<meta property="og:url" content="https://xtony77.github.io/index.html">
+  <title>SSL證書常見演算法 | XTONY77 Blog</title>
+  <meta name="description" content="SSL證書常見演算法種類RSARSA算法是最常用的公鑰加密算法之一。 RSA密鑰通常有多種不同的長度，如2048位、3072位或4096位。 ECDSA (Elliptic Curve Digital Signature Algorithm)橢圓曲線數字簽名算法（ECDSA）是基於橢圓曲線加密（ECC）的。 它通常用於提供與RSA相同或更高的安全性，但使用更短的密鑰。 查看證書詳細信息fullch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSL證書常見演算法">
+<meta property="og:url" content="https://xtony77.github.io/2023/09/15/ssl/index.html">
 <meta property="og:site_name" content="XTONY77 Blog">
-<meta property="og:description" content="xtony77,blog,筆記,github">
+<meta property="og:description" content="SSL證書常見演算法種類RSARSA算法是最常用的公鑰加密算法之一。 RSA密鑰通常有多種不同的長度，如2048位、3072位或4096位。 ECDSA (Elliptic Curve Digital Signature Algorithm)橢圓曲線數字簽名算法（ECDSA）是基於橢圓曲線加密（ECC）的。 它通常用於提供與RSA相同或更高的安全性，但使用更短的密鑰。 查看證書詳細信息fullch">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2023-09-15T12:02:33.781Z">
+<meta property="article:modified_time" content="2023-09-15T12:03:42.054Z">
 <meta property="article:author" content="xtony77">
 <meta property="article:tag" content="xtony77">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xtony77.github.io/index.html">
+  <link rel="canonical" href="https://xtony77.github.io/2023/09/15/ssl/index.html">
   
     <link rel="alternate" href="/atom.xml" title="XTONY77 Blog" type="application/atom+xml">
   
@@ -185,67 +187,97 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-ssl" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/15/ssl/">SSL證書常見演算法</a>
+    <h1 class="article-title" itemprop="name">
+      SSL證書常見演算法
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/2023/09/15/ssl/" class="article-date">
-	  <time datetime="2023-09-15T12:02:33.781Z" itemprop="datePublished">9月 15</time>
+	  <time datetime="2023-09-15T12:02:33.781Z" itemprop="datePublished">2023-09-15</time>
 	</a>
 </span>
-    
-    
+        
+        
 
-    <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/15/ssl/#comments" class="article-comment-link">評論</a></span> -->
-    
-  </p>
-</article>
+        
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+        <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/15/ssl/#comments" class="article-comment-link">評論</a></span> -->
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="SSL證書常見演算法種類"><a href="#SSL證書常見演算法種類" class="headerlink" title="SSL證書常見演算法種類"></a>SSL證書常見演算法種類</h2><h3 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h3><p>RSA算法是最常用的公鑰加密算法之一。</p>
+<p>RSA密鑰通常有多種不同的長度，如2048位、3072位或4096位。</p>
+<h3 id="ECDSA-Elliptic-Curve-Digital-Signature-Algorithm"><a href="#ECDSA-Elliptic-Curve-Digital-Signature-Algorithm" class="headerlink" title="ECDSA (Elliptic Curve Digital Signature Algorithm)"></a>ECDSA (Elliptic Curve Digital Signature Algorithm)</h3><p>橢圓曲線數字簽名算法（ECDSA）是基於橢圓曲線加密（ECC）的。</p>
+<p>它通常用於提供與RSA相同或更高的安全性，但使用更短的密鑰。</p>
+<h2 id="查看證書詳細信息"><a href="#查看證書詳細信息" class="headerlink" title="查看證書詳細信息"></a>查看證書詳細信息</h2><h3 id="fullchain-pem"><a href="#fullchain-pem" class="headerlink" title="fullchain.pem"></a>fullchain.pem</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in fullchain.pem -text -noout</span><br></pre></td></tr></table></figure>
+
+<p>會看到使用<code>sha256WithRSAEncryption</code>, 表示使用RSA算法</p>
+<h3 id="privkey-pem"><a href="#privkey-pem" class="headerlink" title="privkey.pem"></a>privkey.pem</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in privkey.pem -text -noout</span><br></pre></td></tr></table></figure>
+
+<p>會看到使用<code>prime256v1</code>(也稱為secp256r1或NIST P-256）的橢圓曲線, 表示使用橢圓曲線加密（ECC）算法。</p>
+<p>這種類型的私鑰通常用於ECDSA（橢圓曲線數字簽名算法）或ECDH（橢圓曲線Diffie-Hellman）等加密或簽名操作。</p>
+<h2 id="匹配ECDSA方法"><a href="#匹配ECDSA方法" class="headerlink" title="匹配ECDSA方法"></a>匹配ECDSA方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl ec -in privkey.pem -pubout -out ecpubkey.pem</span><br><span class="line">openssl x509 -in fullchain.pem -pubkey -noout &gt; certpubkey.pem</span><br><span class="line">diff ecpubkey.pem certpubkey.pem</span><br></pre></td></tr></table></figure>
+
+<p>如果diff命令沒有輸出任何內容，這意味著兩個公鑰是相同的，因此私鑰和證書是匹配的。</p>
+<h2 id="匹配RSA方法"><a href="#匹配RSA方法" class="headerlink" title="匹配RSA方法"></a>匹配RSA方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -noout -modulus -in privkey.pem | openssl sha256</span><br><span class="line">openssl x509 -noout -modulus -in fullchain.pem | openssl sha256</span><br></pre></td></tr></table></figure>
+
+<p>如果兩個模數的SHA-256哈希值相同，則私鑰和證書是匹配的。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      
+
+    </div>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/30/pow/">共識演算法介紹</a>
-    </h1>
-  
+    
+  <section id="comments">
+  	
+  </section>
 
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/07/30/pow/" title="共識演算法介紹"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
   </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/07/30/pow/" class="article-date">
-	  <time datetime="2022-07-29T16:40:11.114Z" itemprop="datePublished">7月 30</time>
-	</a>
-</span>
-    
-    
-
-    <!-- <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/30/pow/#comments" class="article-comment-link">評論</a></span> -->
-    
-  </p>
-</article>
-
-    
   </div>
+</nav>
+  
 
-   
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -285,6 +317,8 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
 
 
 
